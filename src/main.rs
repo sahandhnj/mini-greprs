@@ -16,17 +16,17 @@ fn main() {
     });
 
     println!(
-        "Looking for {:?} in file {:?}\n",
+        "Looking for lines with word {:?} in file {:?}\n",
         arguments.search_term, arguments.file_path
     );
 
-    if let Err(e) = run(arguments) {
+    if let Err(e) = run(arguments, env::var("CASE_INSENSITIVE").is_err()) {
         eprintln!("Application error: {}", e);
         process::exit(1);
     }
 }
 
-fn run(arguments: Arguments) -> Result<(), Box<Error>> {
+fn run(arguments: Arguments, case_sensetive: bool) -> Result<(), Box<Error>> {
     let file_content = match get_file_content(arguments.file_path) {
         Ok(file_content) => file_content,
         Err(err) => {
@@ -34,7 +34,7 @@ fn run(arguments: Arguments) -> Result<(), Box<Error>> {
         }
     };
 
-    let _temp= search(arguments.search_term, &file_content);
+    let _temp= search(arguments.search_term, &file_content, case_sensetive);
 
     Ok(())
 }
