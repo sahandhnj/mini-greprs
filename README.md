@@ -1,7 +1,7 @@
 # mini-greprs
 Rust documentation ( the book ) chapter 12
 
-> target/debug/greprs How poem
+target/debug/greprs How poem
 Looking for lines with word "How" in file "poem"
 
 6- How dreary to be somebody!
