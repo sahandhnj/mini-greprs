@@ -6,6 +6,7 @@ target/debug/greprs How poem
 Looking for lines with word "How" in file "poem"
 
 6- How dreary to be somebody!
+
 7- How public, like a frog
 
 2 lines found
